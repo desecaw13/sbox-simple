@@ -2,8 +2,8 @@
 using System;
 using System.Linq;
 
-namespace MinimalExample {
-	partial class MinimalPlayer : Player {
+namespace Simple {
+	partial class Player : Sandbox.Player {
 		public override void Respawn() {
 			SetModel("models/citizen/citizen.vmdl");
 
@@ -13,8 +13,8 @@ namespace MinimalExample {
 			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
 			Animator = new StandardPlayerAnimator();
 
-			// Use ThirdPersonCamera (you can make your own Camera for 100% control)
-			Camera = new ThirdPersonCamera();
+			// Use FirstPersonCamera (you can make your own Camera for 100% control)
+			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;

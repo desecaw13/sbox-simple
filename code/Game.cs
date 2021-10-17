@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace MinimalExample {
+namespace Simple {
 
 	/// <summary>
 	/// This is your game class. This is an entity that is created serverside when
@@ -13,8 +13,8 @@ namespace MinimalExample {
 	/// You can use this to create things like HUDs and declare which player class
 	/// to use for spawned players.
 	/// </summary>
-	public partial class MinimalGame : Sandbox.Game {
-		public MinimalGame() {
+	public partial class Game : Sandbox.Game {
+		public Game() {
 			if (IsServer) {
 				Log.Info("My Gamemode Has Created Serverside!");
 
@@ -22,7 +22,7 @@ namespace MinimalExample {
 				// and when it is created clientside it creates the actual
 				// UI panels. You don't have to create your HUD via an entity,
 				// this just feels like a nice neat way to do it.
-				new MinimalHudEntity();
+				new HudEntity();
 			}
 
 			if (IsClient) {
@@ -36,7 +36,7 @@ namespace MinimalExample {
 		public override void ClientJoined(Client client) {
 			base.ClientJoined(client);
 
-			var player = new MinimalPlayer();
+			var player = new Player();
 			client.Pawn = player;
 
 			player.Respawn();
